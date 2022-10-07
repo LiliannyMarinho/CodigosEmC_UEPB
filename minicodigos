@@ -1,0 +1,26 @@
+Ler nome, idade, nascimento
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+  char name[21];
+  int age,day,month,year;
+
+  printf(“\nType your name: ”);
+  scanf(“%s”,name);
+  printf(“\nType your age: ”);
+  scanf(“%d”,&age);
+  printf(“\nType the day you were born: ”);
+  scanf(“%d”,&day);
+  printf(“\nType the month you were born: ”);
+  scanf(“%d”,&month);
+  printf(“\nType the year you were born: ”);
+  scanf(“%d”,&year);
+  printf(“\nWelcome %s”,name);
+  printf(“\nUser: %s”,name);
+  printf(“\nAge: %d years”,age);
+  printf(“\nBirth Date: %d/%d/%d”,day,month,year);
+
+return 0;
+}
