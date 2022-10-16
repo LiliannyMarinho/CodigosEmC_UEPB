@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+char op;
+float a,b;
+printf("Operadores:\nAdição +\nSubtração -\nMultiplicação *\nDivisão /\n ");
+printf("\nIndique o operador a ser executado: ");
+scanf("%c",&op);
+printf("\nIndique o primeiro valor: ");
+scanf("%f",&a);
+printf("\nIndique o segundo valor: ");
+scanf("%f",&b);
+
+switch(op) {
+  case '+': printf("\nA soma é %.0f\n",a+b);
+  break;
+  case '-': printf("\nA subtração é %.0f\n",a-b);
+  break;
+  case '*': printf("\nA multiplicação é %.0f\n",a*b);
+  break;
+  case '/': printf("\nA divisão é %.0f\n",a/b);
+  break;
+  default: printf("\nValor inválido!\n");
+}
+return 0;
+}
