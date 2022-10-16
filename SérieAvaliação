@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+float media (float s,float q) {
+  return (s/q);
+}
+char *resp(char med) {
+  if (med>=7) {
+    return "GREAT";
+  } else if (med>5&&med<6.9) {
+    return "NOT TOO BAD";
+  } else {
+    return "BAD";
+  }
+}
+
+int main () {
+  char serie[100];
+  char *resposta;
+  int quant = 0;
+  float soma,nota,m;
+  printf("\nInsira o nome da série: \n");
+  scanf("%50[^\n]s",serie);
+  
+  while (nota!=-1) {
+    printf("\nInsira a nota: ");
+    scanf("%f",&nota);
+    if (nota!=-1){
+      quant = quant + 1;
+      soma = soma + nota;
+    }
+  }
+  m = media(soma,quant);
+  resposta = resp(m);
+  
+  printf("\nSaída:\n%s",serie);
+  printf("\n\nMédia: %.1f",m);
+  printf("\n\nAvaliação: %s\n",resposta);
+    
+return 0;
+}
