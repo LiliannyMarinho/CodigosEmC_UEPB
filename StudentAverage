@@ -1,0 +1,30 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float med (float n1, float n2, float n3) {
+   return (n1+n2+n3)/3;
+}
+
+int main () {
+
+char name[100];
+float note1,note2,note3,average;
+int i=1;
+
+  printf("Enter the student's name: ");
+    fgets(name,100,stdin);
+  printf("\nEnter the %dº note: ",i);
+    scanf("%f",&note1);
+  printf("\nEnter the %dº note: ",i+1);
+    scanf("%f",&note2);
+  printf("\nEnter the %dº note: ",i+2);
+    scanf("%f",&note3);
+
+  average = med(note1,note2,note3);
+  
+  printf("\n********\n");
+  printf("\nStudent: %s\nAverage: %.1f\n",name,average);
+  
+return 0;
+}
