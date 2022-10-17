@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*Busca Sequencial*/
+
+int main () {
+  int vector[10] = {2,1,3,5,2,7,8,9,10,6};
+  int size = 10;
+  int search;
+  int resp[size];
+  int p = 0;
+  int i;
+
+  printf("Enter the number you want to search for in the vector: ");
+  scanf("%d",&search);
+
+  for(i=0;i<=size-1;i++) {
+    if(vector[i]==search) {
+      resp[p] = i;
+      p = p+1;
+    }
+  }
+  if (p > 0) {
+    for(i=0;i<=p-1;i++) {
+      printf("\nPosition %d\n",resp[i]);
+    }
+  } else {
+    printf("\nNumber not found!");
+  }
+
+return 0;
+}
