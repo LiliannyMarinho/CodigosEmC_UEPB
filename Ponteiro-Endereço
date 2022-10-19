@@ -1,0 +1,22 @@
+/*Crie as variáveis x e y e os ponteiros p e q. Atribua o valor 2 a x e 8 a y, o endereço de x para p e o endereço de y para q. Depois, 
+imprima os seguintes resultados: a) o endereço de x e o valor de x; b) o valor de p e o valor de *p; c) o endereço e o valor de y; d) o valor de q 
+e o valor de *q; e) o endereço de p e o endereço de q*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+  int x=2,y=8;
+  
+  int *p;
+  int *q;
+  p = &x; //endereço de x para p
+  q = &y; //endereço de y para q
+
+  printf("\nEndereço de x: %p \nValor de x: %d",p,x);
+  printf("\nValor de p: %d \nValor de *p: %d",p,*p);
+  printf("\nEndereço de y: %p \nValor de y: %d ",q,y);
+  printf("\nValor de q: %d \nValor de *q: %d",q,*q);
+  
+return 0;
+}
