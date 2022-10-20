@@ -5,7 +5,7 @@ e o valor de *q; e) o endereço de p e o endereço de q*/
 #include <stdio.h>
 #include <stdlib.h>
 
-int main () {
+int main (void) {
   int x=2,y=8;
   
   int *p;
@@ -13,10 +13,11 @@ int main () {
   p = &x; //endereço de x para p
   q = &y; //endereço de y para q
 
-  printf("\nEndereço de x: %p \nValor de x: %d",p,x);
+  printf("\nEndereço de x: %p \nValor de x: %d",&x,x);
   printf("\nValor de p: %d \nValor de *p: %d",p,*p);
-  printf("\nEndereço de y: %p \nValor de y: %d ",q,y);
+  printf("\nEndereço de y: %p \nValor de y: %d ",&y,y);
   printf("\nValor de q: %d \nValor de *q: %d",q,*q);
+  printf("\nOndereço de p: %p \nEndereço de q*: %p",p,q);
   
 return 0;
 }
