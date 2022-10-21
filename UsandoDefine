@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define des 0.1; 
+//Estabelece uma constante No programna todo
+
+int main () {
+  float salario,salario_F,desconto;
+
+  printf("Insira o sálario: ");
+  scanf("%f",&salario);
+  system("clear"); //clear para Linux e cls para Windows
+
+  desconto = salario * des;
+  salario_F = salario - desconto;
+
+  printf("Sálario Final\nR$ %.2f\n",salario_F);
+
+return 0;
+}
