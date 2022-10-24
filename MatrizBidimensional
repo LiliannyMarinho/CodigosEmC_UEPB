@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main () {
+  char nomes[3][51];
+  int i,j;
+  float notas[3][2];
+
+  for(i=0;i<3;i++) {
+    printf("Nome do aluno: ");
+      gets(nomes[i]);
+  }
+  printf("\n");
+  for(i=0;i<3;i++) {
+    for(j=0;j<2;j++) {
+      printf("Insira a %dº nota de %s: ",j+1,nomes[i]);
+        scanf("%f",&notas[i][j]);
+      printf("\n");
+    }
+  }
+  for(i=0;i<3;i++) {
+    printf("Aluno: %s\n",nomes[i]);
+    for(j=0;j<2;j++) {
+      printf("Nota %d: %.1f",j+1,notas[i][j]);
+      printf("\n");
+    }
+    printf("\n");
+  }
+
+return 0;
+}
