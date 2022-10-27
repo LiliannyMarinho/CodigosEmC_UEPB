@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int soma(int vet[], int tam)
+{
+	if (tam==0)
+	{
+		return 0;
+	}
+	else
+	{
+		return vet[tam-1] + soma(vet,tam-1);
+	}
+}
+
+int main ()
+{
+	int tam=10;
+	int vetor[tam];
+	int i;
+	
+	for(i=0;i<tam;i++)
+	{
+		printf("Insira o %dº valor: ",i+1);
+			scanf("%d",&vetor[i]);
+	}
+	printf("Soma: %d\n", soma(vetor,10));
+  
+return 0;
+}
