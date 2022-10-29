@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int buscar(int vet[],int b,int tam)
+{
+  int i;
+  for(i=0;i<tam;i++)
+  {
+    if(vet[i] == b)
+    {
+      return 1;
+    }
+  }
+  return 0;
+}
+
+int main()
+{
+  int vetor[30];
+  int tam=sizeof(vetor);
+  int i=0,num,busca;
+
+  printf("Insira o valor: ");
+  scanf("%d",&num);
+
+  while (num!=0)
+  {
+    vetor[i] = num;
+    i++;
+    printf("Insira o valor: ");
+    scanf("%d",&num);
+  }
+  printf("\nDigite o valor que deseja buscar no vetor: ");
+  scanf("%d",&busca);
+  
+  printf("%d",buscar(vetor,busca,tam));
+  
+return 0;
+}
