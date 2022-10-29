@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct record
+{
+  char name[45];
+  int age;
+  char address[70];
+};
+
+int main()
+{
+  struct record person;
+
+  printf("Enter your name: ");
+  scanf(" %[^\n]s",person.name);
+  printf("\nEnter your age: ");
+  scanf("%d",&person.age);
+  printf("\nEnter your address: ");
+  scanf(" %[^\n]s",person.address);
+
+  system("clear");
+  printf("\n\nDados Pessoais");
+  printf("\n\nName: %s",person.name);
+  printf("\nAge: %d",person.age);
+  printf("\nAddress: %s\n",person.address);
+  
+return 0;
+}
