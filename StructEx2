@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct ficha
+{
+  char nome[51];
+  int matricula;
+  char curso[51];
+};
+
+int main()
+{
+  struct ficha aluno[2];
+  int i;
+
+  for(i=0;i<2;i++)
+  {
+    printf("Insira o nome do aluno: ");
+    scanf(" %[^\n]s",aluno[i].nome);
+    printf("\nMatrícula: ");
+    scanf("%d",&aluno[i].matricula);
+    printf("\nCurso: ");
+    scanf(" %[^\n]s",aluno[i].curso);
+    printf("\n");
+    system("clear");
+  }
+  printf("\n");
+  for(i=0;i<2;i++)
+  {
+    printf("Aluno: %s",aluno[i].nome);
+    printf("\nMatrícula: %d", aluno[i].matricula);
+    printf("\nCurso: %s",aluno[i].curso);
+    printf("\n\n");
+  }
+return 0;
+}
