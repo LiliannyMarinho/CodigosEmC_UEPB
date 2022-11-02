@@ -32,9 +32,9 @@ int main()
 
   int grafo[quant_v][quant_v];
 
-  for(i=0;i<quant_v;i++)
+  for(i=1;i<quant_v+1;i++)
     {
-      for(j=0;j<quant_v;j++)
+      for(j=1;j<quant_v+1;j++)
         {
           grafo[i][j] = 0;
         }
@@ -66,9 +66,9 @@ int main()
   printf("%s\n\n",tipo_g(tipo));
   printf("\nMatriz Final\n\n");
   
-  for(i=0; i<quant_v; i++)
+  for(i=1; i<quant_v+1; i++)
     {
-      for(j=0; j<quant_v; j++)
+      for(j=1; j<quant_v+1; j++)
         {
           printf(" %d", grafo[i][j]);
         }
