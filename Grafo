@@ -64,6 +64,7 @@ int main()
 
   printf("\n\n");
   printf("%s\n\n",tipo_g(tipo));
+  printf("\nMatriz Final\n\n");
   
   for(i=0; i<quant_v; i++)
     {
