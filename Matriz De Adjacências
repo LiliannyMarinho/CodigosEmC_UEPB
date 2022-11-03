@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+
+char *tipo_g(t)
+{
+  if(t==1)
+  {
+    return "Grafo Direcionado";
+  }
+  else
+  {
+    return "Grafo Não Direcionado";  
+  }
+}
+
+int main()
+{
+  int quant_v,tipo;
+  int i,j;
+  
+  printf("Informe o tipo de grafo: ");
+  printf("\n\n1 - Grafo Direcionado \n2 - Grafo Não Direcionado\n\n");
+  scanf("%d",&tipo);
+  system("clear");
+  printf("%s",tipo_g(tipo));
+
+  printf("\n\nInforme a quantidade de vértices: ");
+  scanf("%d",&quant_v);
+  printf("\n");
+
+  int grafo[quant_v][quant_v];
+
+  for(i=1;i<quant_v+1;i++)
+    {
+      for(j=1;j<quant_v+1;j++)
+        {
+          grafo[i][j] = 0;
+        }
+    }
+
+  int ver_a, ver_b, quant_a;
+
+  while(true)
+    {
+      printf("\nInforme um vértice: ");
+      scanf("%d",&ver_a);
+      printf("\nInforme outro vértice: ");
+      scanf("%d",&ver_b);
+      printf("\nInforme a quantidade de ligações entre os vértices: ");
+      scanf("%d",&quant_a);
+      system("clear");
+    if (ver_a < 0 || ver_b < 0 || quant_a < 0)
+    {
+      break;
+    }
+      grafo[ver_a][ver_b] = quant_a;
+      if(tipo==2)
+    {
+      grafo[ver_b][ver_a] = quant_a;
+    }
+  }
+
+  printf("\n\n");
+  printf("%s\n\n",tipo_g(tipo));
+  printf("\nMatriz Final\n\n");
+  
+  for(i=1; i<quant_v+1; i++)
+    {
+      for(j=1; j<quant_v+1; j++)
+        {
+          printf(" %d", grafo[i][j]);
+        }
+      printf("\n");
+    }
+
+return 0;
+}
