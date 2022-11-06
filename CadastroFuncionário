@@ -1,0 +1,46 @@
+/*Cadastro -Funcionario*/
+#include <stdio.h>
+#include <stdlib.h>
+
+struct funcionarios
+{
+  char nome[45];
+  int cpf;
+};
+
+struct departamentos
+{
+  char nome_dep[45];
+  char local[45];
+};
+
+int main()
+{
+  struct funcionarios funcionario[5];
+  struct departamentos departamento[5];
+
+  for(int i=0; i<5; i++)
+  {
+    printf("Cadastro de funcionário \n\n");
+    printf("Insira o nome do funcionário: ");
+    scanf(" %[^\n]",funcionario[i].nome);
+    printf("\nInforme o cpf: ");
+    scanf("%d",&funcionario[i].cpf);
+    printf("\nInforme o departamento: ");
+    scanf(" %s[^\n]",departamento[i].nome_dep);
+    printf("\nInforme o local: ");
+    scanf(" %[^\n]",departamento[i].local);
+    system("clear");
+  }
+  printf("Dados dos funcionários\n\n");
+  for(int i=0; i<5; i++)
+  {
+    printf("Nome: %s",funcionario[i].nome);
+    printf("\nCPF: %d",funcionario[i].cpf);
+    printf("\nDepartamento: %s",departamento[i].nome_dep);
+    printf("\nLocal: %s",departamento[i].local);
+    printf("\n\n");
+  }
+
+return 0;
+}
