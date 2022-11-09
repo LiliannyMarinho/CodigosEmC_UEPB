@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct nota
+{
+  float n1,n2,n3;
+
+};
+
+float med(float not1, float not2, float not3)
+{
+  float m;
+  return m = (not1+not2+not3)/3;
+}
+char *situacao(float m)
+{
+  if(m>=7)
+  {
+    return "Aprovado por média";
+  }
+  else
+  {
+    return "Reprovado";  
+  }
+}
+
+int main()
+{
+  struct nota aluno;
+  
+  printf("Informe a 1º Nota: ");
+  scanf("%f",&aluno.n1);
+  printf("Informe a 2º Nota: ");
+  scanf("%f",&aluno.n2);
+  printf("Informe a 3º Nota: ");
+  scanf("%f",&aluno.n3);
+  
+  float media;
+  float *ptr1,*ptr2,*ptr3;
+  ptr1 = &aluno.n1;
+  ptr2 = &aluno.n2;
+  ptr3 = &aluno.n3;
+  char *situ;
+
+  media = med(*ptr1,*ptr2,*ptr3);
+  printf("\n\nMédia: %.1f",media);
+  situ = situacao(media);
+  printf("\nSituação: %s\n",situ);
+
+return 0;
+}
