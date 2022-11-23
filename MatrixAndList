@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+  int v = v-1;
+  int grafo;
+  
+  printf("Informe a quantidade de vértices: ");
+  scanf("%d",&v);
+  printf("\n[1] - Grafo direcionado\n[2] - Grafo não direcionado:\n\n-> ");
+  scanf("%d",&grafo);
+
+  int i,j;
+  int matriz[v][v];
+
+  for(i=0; i<v; i++)
+  {
+    for(j=0; j<v; j++)
+    {
+      matriz[i][j] = -1;
+    }
+  }
+  
+printf("\nPreenchendo...\nArestas\n\n");
+  for(i=0; i<v; i++)
+  {
+    for(j=0; j<v; j++)
+    {
+      if (matriz [i][j] == -1)
+      {
+        printf("%d-%d: ",i,j);
+        scanf("%d",&matriz[i][j]);
+      }
+      if(grafo == 2)
+      {
+        matriz[j][i] = matriz[i][j];
+      }
+    }
+    printf("\n");
+  }
+  printf("Matriz\n\n");
+  for(i=0; i<v; i++)
+  {
+    for(j=0; j<v; j++)
+    {
+      printf("%d ",matriz[i][j]);
+    }
+    printf("\n");
+  }
+  printf("\nLista\n\n");
+  for(i=0; i<v; i++)
+  {
+    printf("|%d| -> ",i);
+    for(j=0; j<v; j++)
+    {
+      if(matriz[i][j] != 0)
+      {
+        printf("|%d",j);    
+      }
+    }printf("\n");
+  }
+
+return 0;
+}
