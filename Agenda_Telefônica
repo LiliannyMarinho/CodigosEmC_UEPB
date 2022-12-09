@@ -1,0 +1,178 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct contatos
+{
+  char nome[40];
+  char telefone[15];
+  char celular[15];
+  char email[40];
+
+  struct contatos *prox;
+} contato;
+
+contato *criar()
+{
+  return NULL;
+}
+
+contato *insere (contato *lista){
+  contato *novo;
+  novo = (contato *) malloc(sizeof(contato));
+  printf("***Contato***\nPreenchendo informações...");
+  printf("\n\nNome: ");
+  scanf(" %[^\n]s",novo->nome);
+  printf("\nTelefone: ");
+  scanf(" %[^\n]s",novo->telefone);
+  printf("\nCelular: ");
+  scanf(" %[^\n]s",novo->celular);
+  printf("\nE-mail: ");
+  scanf(" %[^\n]s",novo->email);
+  novo->prox = (struct contatos *) lista;
+  return novo;
+}
+
+void lista_contatos(contato *lista)
+{
+  contato *pt = lista;
+  printf("\n\n***Contatos***");
+
+  while(pt != NULL)
+  {
+      printf("\n\nNome: %s",pt->nome);
+      printf("\nTelefone: %s",pt->telefone);
+      printf("\nCelular: %s",pt->celular);
+      printf("\nE-mail: %s\n",pt->email);
+      pt = (contato *)pt->prox;
+  }
+}
+
+contato *busca_contato(contato *lista, char p[])
+{
+    contato *pt = lista;
+    while (pt != NULL)
+    {
+        if (strcmp(pt->nome, p) == 0)
+        {
+            return pt;
+        }
+        pt = (contato *)pt->prox;
+    }
+    return NULL;
+}
+
+contato *excluir(contato *lista, char p[])
+{
+  contato *pt = lista;
+  contato *aux = NULL;
+  while(pt != NULL && strcmp(pt->nome, p))
+  {
+    aux = pt;
+    pt = (contato *) pt->prox;
+  }
+  if(pt ==NULL)
+  {
+    return lista;
+  }
+  if(aux == NULL)
+  {
+    lista = (contato *)pt->prox;
+  }
+  else
+  {
+    aux->prox=pt->prox;
+  }
+  free(pt);
+  return lista;
+}
+
+void arquivos(contato *lista, char arqui[])
+{
+  FILE *file = fopen(arqui,"w");
+  contato *pt = lista;
+  while(pt != NULL)
+  {
+    if(file)
+    {
+      fprintf(file, "*** Lista de contatos ***\n");
+      while(pt != NULL)
+      {
+        fprintf(file,"\nNome: %s",pt->nome);
+        fprintf(file,"\nTelefone: %s",pt->telefone);
+        fprintf(file,"\nCelular: %s",pt->celular);
+        fprintf(file,"\nE-mail: %s\n",pt->email);
+
+        pt = pt->prox;
+      }
+      fclose(file);
+    }
+    else
+    {
+      printf("\nErro no sistema de arquivo!\n");
+    }
+  }
+}
+
+
+int main()
+{
+  contato *ptr = criar(); //gancho
+  contato *contato;
+  int opcao,iniciar=1;
+  char nome[50], arquivo[] = {"Agenda_Telefônica.txt"};
+  
+  while(iniciar == 1)
+  {
+    printf("\n\n***MENU***");
+    printf("\n\n[1] - Inserir contato\n[2] - Listar contatos\n[3] - Buscar contatos\n[4] - Excluir contato\n[5] - Arquivo(txt)\n[6] - Sair\n\n--> ");
+    scanf("%d",&opcao);
+
+    if(opcao==1)
+    {
+      ptr = insere(ptr);
+      system("clear");
+    }
+    else if(opcao==2)
+    {
+     lista_contatos(ptr);
+    }
+    else if(opcao==3)
+    {
+      printf("\nBuscar contato:\n--> ");
+      scanf(" %[^\n]s",nome);
+      contato = busca_contato(ptr,nome);
+      if(busca_contato(ptr,nome) != NULL)
+      {
+        printf("\nEncontrado!\n");
+        printf("\nNome: %s\nTelefone: %s\nCelular: %s\nE-mail: %s",contato->nome,contato->telefone,contato->celular,contato->email);
+      }
+      else if(busca_contato(ptr,nome) == NULL)
+      {
+        printf("\nContato não encontrado!");
+      }
+    }
+    else if(opcao==4)
+    {
+      printf("\n\nExcluir contato:\n--> ");
+      scanf(" %[^\n]s",nome);
+      ptr = excluir(ptr,nome);
+      printf("\nExcluindo...\nContato Excluído!");
+    }
+    else if(opcao==5)
+    {
+      arquivos(ptr, arquivo);
+      
+    }
+    else if(opcao==6)
+    {
+      printf("\nPrograma encerrado!");
+    }
+    else
+    {
+      printf("...\n\nValor não reconhecido pelo sistema! Escolha novamente.");
+    }
+  }
+
+return 0;
+}
